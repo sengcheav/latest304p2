@@ -41,7 +41,7 @@ app.get('/quote/:id', function(req, res) {
   res.send(q);
 });
 
-app.post('/quote', function(req, res) {
+app.post('/quotea', function(req, res) {
   console.log(req.body);
   if(!req.body.hasOwnProperty('author') || !req.body.hasOwnProperty('text')) {
   if(!req.body.hasOwnProperty('author') ){ console.log('fk author');} 
