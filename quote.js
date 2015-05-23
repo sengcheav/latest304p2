@@ -91,7 +91,7 @@ app.post('/quotea', function(req, res) {
     text : req.body.text
   };
    newQuote.pos = quotes.length;
-console.log("FK");
+ //console.log("FK");
  query = client.query('SELECT COUNT(id) AS COUNT FROM quote');
     query.on('row', function(  result) { 
 /*    	if(err) {console.log("ERR @ select count"); }
@@ -110,9 +110,11 @@ console.log("FK");
 	query = client.query('INSERT INTO quote (id , author , text) VALUES($1, $2, $3)', [result.count , newQuote.author+ result.count , newQuote.text], function (err){
 	if (err) return res.send('Error : Can not add to database');
 	else {
+	console.log("add Property to newQuote);
 	newQuote.pos = result.count;
 	newQuote.author = newQuote.author+result.count ; 	
 	newQuote.text = newQuote.text ;
+	
 	}
 });
 	}else { console.log("ERROR in getCount");}
