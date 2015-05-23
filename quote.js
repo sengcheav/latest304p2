@@ -18,7 +18,7 @@ var quotes = [
 ];
 
 // make sure we can parse JSON
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 //
 // serve up files from this directory 
 app.use(express.static(__dirname));
@@ -29,7 +29,7 @@ app.use(cors());
 
 
 // make sure we can parse JSON
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 app.get('/quote/random', function(req, res) {
   var id = Math.floor(Math.random() * quotes.length);
   var q = quotes[id];
