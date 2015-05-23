@@ -110,7 +110,7 @@ app.post('/quotea', function(req, res) {
 	query = client.query('INSERT INTO quote (id , author , text) VALUES($1, $2, $3)', [result.count , newQuote.author+ result.count , newQuote.text], function (err){
 	if (err) return res.send('Error : Can not add to database');
 	else {
-	console.log("add Property to newQuote);
+	console.log("add Property to newQuote");
 	newQuote.pos = result.count;
 	newQuote.author = newQuote.author+result.count ; 	
 	newQuote.text = newQuote.text ;
