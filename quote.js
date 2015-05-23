@@ -107,6 +107,7 @@ console.log("FK");
 */
     	if(result){
 	console.log("-->" + result.count);
+	query = client.query('INSERT INTO quote (id , author , text) VALUES($1, $2, $3)', [result.count , newQuote.author, newQuote.text]);
 	}else { console.log("ERROR in getCount");}
     });
 res.send(newQuote);
