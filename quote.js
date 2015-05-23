@@ -9,8 +9,15 @@ var cors = require('cors');
 
 // instantiate app
 var app = express();
+  , pg = require('pg').native
+  , connectionString = process.env.DATABASE_URL 
+  , client
+  , query;
 
-var quotes = [
+client = new pg.Client(connectionString);
+client.connect();
+
+ var quotes = [
   { author : 'Audrey Hepburn', text : "Nothing is impossible, the word itself says 'I'm possible'!"},
   { author : 'Walt Disney', text : "You may not realize it when it happens, but a kick in the teeth may be the best thing in the world for you"},
   { author : 'Unknown', text : "Even the greatest was once a beginner. Don’t be afraid to take that first step."},
