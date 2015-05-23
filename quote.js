@@ -54,12 +54,26 @@ app.get('/quote/random', function(req, res) {
 });*/
 
 app.get('/quote/:id', function(req, res) {
-  if(quotes.length <= req.params.id || req.params.id < 0) {
+  
+  if(req.params.id < 0 ){
     res.statusCode = 404;
     return res.send('Error 404: No quote found');
   }
-  var q = quotes[req.params.id];
-  res.send(q);
+
+ // var q = quotes[req.params.id];
+  //res.send(q);
+  query = client.query('SELECT author, text FROM quote WHERE id = $1', [req.params.id]);
+  query.on('row', function(result) {
+    console.log(result);
+
+    if (!result) {
+      return res.send('No data found');
+    } else {
+      res.send(result);
+    }
+  }); 
+
+
 });
 
 app.post('/quotea', function(req, res) {
@@ -89,14 +103,6 @@ console.log("FK");
 	    else { console.log ("YAY");}
 	    });	
     	}
-//	if (err){console .log("ERROR"); }	
-//	else {console .log("NOT ERROR");
-//	 query = client.query('INSERT INTO quote (id , author , text) VALUES($1, $2, $3)', [result.count , newQuote.author, newQuote.text]);
-//	 query.on ('row', function (err, result1){
-///	 if(err) {console.log ("Post error"); }
-//	 else {}
-//	 });
-//	}
 
     });
 res.send(newQuote);
