@@ -28,10 +28,10 @@
 
         <label for="text-2">Add a new quote:</label>
         <input type="submit" value="Submit Button" id="button2" />
-
+<!--
 	<label for="text-3">Delete a quote</lable>
 	<input type="submit" value="Delete" id "delete-button" />
-
+-->
     </div><!-- /content -->
 
     <div data-role="footer">
@@ -69,12 +69,12 @@ $(document).bind('pageinit', function() {
     }, 'json');
   });
 
-  $( '#delete-button").bind("click", function(event,ui){
-    var q = $("#text1").val();
-    alert("Delete Quote : "+ q);
-    var jsonUrl = "https://cryptic-inlet-7090.herokuapp.com/quote"+q;
-    $.delete(jsonUrl,function(data);
-  });
+//  $( '#delete-button").bind("click", function(event,ui){
+  //  var q = $("#text1").val();
+    //alert("Delete Quote : "+ q);
+    //var jsonUrl = "https://cryptic-inlet-7090.herokuapp.com/quote"+q;
+    //$.delete(jsonUrl,function(data);
+  //});
 
 });
 </script>
