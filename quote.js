@@ -105,8 +105,9 @@ console.log("FK");
 	    });	
     	}
 */
-    	console.log(result);
-
+    	if(!err){
+	console.log(result);
+	}else { console.log("ERROR in getCount");}
     });
 res.send(newQuote);
   /*quotes.push(newQuote);
