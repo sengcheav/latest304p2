@@ -2,7 +2,7 @@
 var express = require('express');
 
 // make express handle JSON and other requests
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 
 // use cross origin resource sharing
 var cors = require('cors');
