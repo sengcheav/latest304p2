@@ -132,7 +132,7 @@ app.delete('/quote/:id', function(req, res) {
 	
 	}
 
-};  
+   });  
 
 
 
