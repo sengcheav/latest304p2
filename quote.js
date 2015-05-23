@@ -18,7 +18,7 @@ var quotes = [
 ];
 
 // make sure we can parse JSON
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 //
 // serve up files from this directory 
 app.use(express.static(__dirname));
