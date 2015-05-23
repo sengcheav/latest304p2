@@ -44,7 +44,7 @@ app.get('/quote/random', function(req, res) {
    query.on('row', function(  result) {
       if(result){
       	var ids = Math.floor(Math.random() * result.count);
-        query = client.query('SELECT id, quote, text FROM quote WHERE id = $1', [ids]);
+        query = client.query('SELECT * FROM quote WHERE id = $1', [ids]);
 	query.on('row', function (result){
 	   res.send(result);
 	});
