@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 
 // instantiate app
-var app = express();
+var app = express()
   , pg = require('pg').native
   , connectionString = process.env.DATABASE_URL 
   , client
