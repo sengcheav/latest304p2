@@ -115,13 +115,28 @@ app.post('/quotea', function(req, res) {
 });
 
 app.delete('/quote/:id', function(req, res) {
-  if(quotes.length <= req.params.id) {
+/*  if(quotes.length <= req.params.id) {
     res.statusCode = 404;
     return res.send('Error 404: No quote found');
   }
 
   quotes.splice(req.params.id, 1);
-  res.json(true);
+  res.json(true);*/
+   query = client.query('DELETE FROM quote WHERE id = $1', [req.params.id], function (err){
+	if(err){
+	  res.statusCode = 404;
+	  return res.send('Error 404: No quote found');
+	}else {
+	  res.statusCode = 204;
+	  res.json(true);
+	
+	}
+
+};  
+
+
+
+
 });
 
 // use PORT set as an environment variable
