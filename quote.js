@@ -76,12 +76,36 @@ app.post('/quotea', function(req, res) {
     author : req.body.author,
     text : req.body.text
   };
+   newQuote.pos = quotes.length;
+console.log("FK");
+ query = client.query('SELECT COUNT(id) AS COUNT FROM quote');
+    query.on('row', function( err, result) { 
+    	if(err) {console.log (err);console.log("ERR"); }
+    	else { console.log ("FK heroku") ;
+    	    console.log ("COUNT : --"  + result.count );
+    	    query = client.query('INSERT INTO quote (id , author , text) VALUES($1, $2, $3)', [result.count , newQuote.author, newQuote.text]);
+	    query.on ('row', function (err, result){
+	    if(err) {console.log (err); }
+	    else { console.log ("YAY");}
+	    });	
+    	}
+//	if (err){console .log("ERROR"); }	
+//	else {console .log("NOT ERROR");
+//	 query = client.query('INSERT INTO quote (id , author , text) VALUES($1, $2, $3)', [result.count , newQuote.author, newQuote.text]);
+//	 query.on ('row', function (err, result1){
+///	 if(err) {console.log ("Post error"); }
+//	 else {}
+//	 });
+//	}
 
-  quotes.push(newQuote);
+    });
+res.send(newQuote);
+  /*quotes.push(newQuote);
   // should send back the location at this point
   console.log("Added!");
   newQuote.pos = quotes.length-1;
   res.send(newQuote);
+*/
 });
 
 app.delete('/quote/:id', function(req, res) {
