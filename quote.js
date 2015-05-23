@@ -44,6 +44,8 @@ app.get('/quote/:id', function(req, res) {
 app.post('/quote', function(req, res) {
   console.log(req.body);
   if(!req.body.hasOwnProperty('author') || !req.body.hasOwnProperty('text')) {
+if (!req.body.hasOwnProperty('author') ){ console.log('fk author');}
+if(!req.body.hasOwnProperty('text')){console.log('fk text ');} 
     console.log("body suck");	
     res.statusCode = 400;
     return res.send('Error 400: Post syntax incorrect.');
