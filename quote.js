@@ -114,12 +114,14 @@ app.post('/quotea', function(req, res) {
 	newQuote.pos = result.count;
 	newQuote.author = newQuote.author+result.count ; 	
 	newQuote.text = newQuote.text ;
-	
+	res.send(newQuote);	
 	}
 });
-	}else { console.log("ERROR in getCount");}
+	}else { console.log("ERROR in getCount");
+	        return res.send('Error : Can not add to database'); 
+	}
     });
-res.send(newQuote);
+//res.send(newQuote);
   /*quotes.push(newQuote);
   // should send back the location at this point
   console.log("Added!");
