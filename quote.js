@@ -2,7 +2,7 @@
 var express = require('express');
 
 // make express handle JSON and other requests
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 
 // use cross origin resource sharing
 var cors = require('cors');
@@ -18,7 +18,7 @@ var quotes = [
 ];
 
 // make sure we can parse JSON
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 //
 // serve up files from this directory 
 app.use(express.static(__dirname));
