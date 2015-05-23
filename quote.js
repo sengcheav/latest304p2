@@ -105,7 +105,7 @@ console.log("FK");
 	    });	
     	}
 */
-    	if(result){
+    	if(!err){
 	console.log("-->" + result.count);
 	}else { console.log("ERROR in getCount");}
     });
