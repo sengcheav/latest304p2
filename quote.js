@@ -19,7 +19,7 @@ var quotes = [
 
 // make sure we can parse JSON
 app.use(bodyParser.json());
-//
+app.use(bodyParser());
 // serve up files from this directory 
 app.use(express.static(__dirname));
 
