@@ -106,7 +106,7 @@ console.log("FK");
     	}
 */
     	if(result){
-	console.log(result);
+	console.log("-->" + result.count);
 	}else { console.log("ERROR in getCount");}
     });
 res.send(newQuote);
