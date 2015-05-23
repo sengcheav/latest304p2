@@ -35,12 +35,22 @@ app.use(express.static(__dirname));
 app.use(cors());
 
 
-// make sure we can parse JSON
-//app.use(bodyParser.json());
+
 app.get('/quote/random', function(req, res) {
-  var id = Math.floor(Math.random() * quotes.length);
-  var q = quotes[id];
-  res.send(q);
+//  var id = Math.floor(Math.random() * quotes.length);
+//  var q = quotes[id];
+//  res.send(q);
+   query = client.query('SELECT COUNT(id) AS COUNT FROM quote');
+   query.on('row', function(  result) {
+      if(result){
+      	var ids = Math.floor(Math.random() * result.count);
+        query = client.query('SELECT id, quote, text FROM quote WHERE id = $1', [ids]);
+	query.on('row', function (result){
+	   res.send(result);
+	});
+      }
+   });
+
 });
 
 
