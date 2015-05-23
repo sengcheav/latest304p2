@@ -43,15 +43,6 @@ app.get('/quote/random', function(req, res) {
   res.send(q);
 });
 
-/*app.get('/quote/:id', function(req, res) {
-  if(quotes.length <= req.params.id || req.params.id < 0) {
-    res.statusCode = 404;
-    return res.send('Error 404: No quote found');
-  }
-
-  var q = quotes[req.params.id];
-  res.send(q);
-});*/
 
 app.get('/quote/:id', function(req, res) {
   
@@ -79,8 +70,8 @@ app.get('/quote/:id', function(req, res) {
 app.post('/quotea', function(req, res) {
   console.log(req.body);
   if(!req.body.hasOwnProperty('author') || !req.body.hasOwnProperty('text')) {
-  if(!req.body.hasOwnProperty('author') ){ console.log('fk author');} 
-  if(!req.body.hasOwnProperty('text')){console.log('fk text ');} 
+ // if(!req.body.hasOwnProperty('author') ){ console.log('fk author');} 
+//  if(!req.body.hasOwnProperty('text')){console.log('fk text ');} 
     console.log("body suck");	
     res.statusCode = 400;
     return res.send('Error 400: Post syntax incorrect.');
