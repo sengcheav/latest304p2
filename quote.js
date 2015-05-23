@@ -107,6 +107,7 @@ console.log("FK");
 */
     	if(result){
 	console.log("-->" + result.count);
+	newQuote.pos = result.count; 
 	query = client.query('INSERT INTO quote (id , author , text) VALUES($1, $2, $3)', [result.count , newQuote.author+ result.count , newQuote.text], function (err){
 	if (err) return res.send('Error : Can not add to database');
 });
