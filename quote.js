@@ -94,17 +94,7 @@ app.post('/quotea', function(req, res) {
  //console.log("FK");
  query = client.query('SELECT COUNT(id) AS COUNT FROM quote');
     query.on('row', function(  result) { 
-/*    	if(err) {console.log("ERR @ select count"); }
-    	else {
-	     console.log ("FK heroku") ;
-    	    console.log ("COUNT : --"  + result.count );
-    	    query = client.query('INSERT INTO quote (id , author , text) VALUES($1, $2, $3)', [result.count , newQuote.author, newQuote.text]);
-	    query.on ('row', function (err, result){
-	    if(err) {console.log (err); }
-	    else { console.log ("YAY");}
-	    });	
-    	}
-*/
+
     	if(result){
 	console.log("-->" + result.count); 
 	query = client.query('INSERT INTO quote (id , author , text) VALUES($1, $2, $3)', [result.count , newQuote.author+ result.count , newQuote.text], function (err){
@@ -121,13 +111,7 @@ app.post('/quotea', function(req, res) {
 	        return res.send('Error : Can not add to database'); 
 	}
     });
-//res.send(newQuote);
-  /*quotes.push(newQuote);
-  // should send back the location at this point
-  console.log("Added!");
-  newQuote.pos = quotes.length-1;
-  res.send(newQuote);
-*/
+
 });
 
 app.delete('/quote/:id', function(req, res) {
