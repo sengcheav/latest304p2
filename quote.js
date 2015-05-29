@@ -28,7 +28,7 @@ client.connect();
 // make sure we can parse JSON
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-//app.use(bodyParser());
+app.use(bodyParser());
 // serve up files from this directory 
 app.use(express.static(__dirname));
 
