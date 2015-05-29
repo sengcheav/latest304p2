@@ -24,9 +24,11 @@ client.connect();
   { author : 'Neale Donald Walsch', text : "You are afraid to die, and you’re afraid to live. What a way to exist."}
 ];
 
+
 // make sure we can parse JSON
+app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-app.use(bodyParser());
+//app.use(bodyParser());
 // serve up files from this directory 
 app.use(express.static(__dirname));
 
