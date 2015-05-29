@@ -62,7 +62,7 @@ $(document).bind('pageinit', function() {
 
   $( "#button2" ).bind( "click", function(event, ui) {
     alert("Posting a new quote");
-    var jsonUrl = "https://cryptic-inlet-7090.herokuapp.com/quotea";
+    var jsonUrl = "https://cryptic-inlet-7090.herokuapp.com/quote";
     var newQuote = { "author" : "author Name", "text" : "some text that dont exist" };
     $.post(jsonUrl,newQuote, function(data) {
       alert("Added quote number " + data.pos + " " + data.author + " " + data.text);
