@@ -56,12 +56,13 @@ app.get('/quote/random', function(req, res) {
 });
 
 app.get('/quote/all/', function(req,res){
-var all = []; 
+//var all = []; 
 query = client.query('SELECT * FROM quote', function (err){
 if(err) {
    res.statusCode =404;
    return res.send('Error: 404 '+err.message);  }
 else { 
+   var all = [];
    query.on('row',function( result){
    all.push(row);
    });
