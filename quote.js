@@ -64,7 +64,8 @@ if(err) {
 else { 
    var all = [];
    query.on('row',function( result){
-   all.push(row);
+		
+   all.push(result);
    });
    query.on('end',function (result){
    res.send(all);  
