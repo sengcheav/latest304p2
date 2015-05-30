@@ -68,9 +68,9 @@ else {
    query.on('end',function (result){
    res.send(all);  
    });
-}	
+   }	
  
-}
+
 
 
 });
