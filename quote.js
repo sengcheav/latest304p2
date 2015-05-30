@@ -56,28 +56,13 @@ app.get('/quote/random', function(req, res) {
 });
 
 app.get('/quote/all/', function(req,res){
-//var all = []; 
-query = client.query('SELECT * FROM quote', function (err){
-if(err) {
-   res.statusCode =404;
-   return res.send('Error: 404 '+err.message);  }
-else { 
-   var all = [];
-   query.on('row',function( result){
-		
-   all.push(result);
-   });
-   query.on('end',function (result){
-   res.send(all);  
-   });
-   }	
- 
-
-
+var all = []; 
+query = client.query('SELECT * FROM quote);
+query.on( 'row', function(result){
+if(!result){ res.statusCode =404 ; return res.send('Error 404');}
+else {console.log(result);  all.push(result);}
 
 });
-
-
 
 });
 app.get('/quote/:id', function(req, res) {
