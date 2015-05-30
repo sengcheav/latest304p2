@@ -61,7 +61,12 @@ query = client.query('SELECT * FROM quote');
 query.on( 'row', function(result){
 if(!result){ res.statusCode =404 ; return res.send('Error 404');}
 else {console.log(result);  all.push(result);}
+
+query.on('end' function(result){
 res.send(all);
+
+});
+
 });
 
 });
